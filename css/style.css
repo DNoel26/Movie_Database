@@ -1,0 +1,424 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root
+{
+    --bg_colour_red: #ac0f15;
+    --bg_colour_offwhite: #fbf0bc;
+    --bg_colour_white: white;
+    --font_colour_red: #ac0f15;
+    --font_colour_offwhite: #fbf0bc;
+    --font_colour_tan: #c19526;
+    --font_colour_darkbrown: #7d2f02;
+}
+
+@keyframes black_white_change
+{
+    50% {color: black;}
+    100% {color: var(--font_colour_offwhite);}
+}
+
+@keyframes header_colour_change_left
+{
+    from 
+    {
+        color: white;
+        background-color: black;    
+    }
+
+    to
+    {
+        color: var(--font_colour_offwhite);
+        background-color: var(--bg_colour_red);
+    }
+}
+
+@keyframes header_colour_change_right
+{
+    from 
+    {
+        color: black;
+        background-color: white;    
+    }
+
+    to
+    {
+        color: var(--font_colour_red);
+        background-color: var(--bg_colour_offwhite);
+    }
+}
+
+@keyframes header_focus
+{
+    0% {font-size: 1.2rem;}
+    25% {font-size: 1.26rem;}
+    50% {font-size: 1.14rem;}
+    100% {font-size: 1.14rem;}
+}
+
+.red_text
+{
+    color: var(--font_colour_red);
+}
+
+.huge_text
+{
+    font-size: 1.8rem;
+    text-transform: lowercase;
+}
+
+.section_flip_to_left
+{
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.section_flip_to_right
+{
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.red_link_buttons
+{
+    display: inline-block;
+    margin: 0 auto 20vh auto;
+    font-family:'Satisfy';
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+    background-color: black;
+    font-size: 1.2rem;
+    padding: 24px 24px;
+    text-align: center;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 45%;
+}
+
+.red_link_buttons:hover
+{
+    color: var(--font_colour_offwhite);
+    background-color: var(--bg_colour_red);
+}
+
+.active_link 
+{
+    color: white !important;
+    background-color: black !important;
+}
+
+body
+{
+    font-family: 'Bungee Inline', 'Satisfy', cursive;
+    font-weight: 100;
+    line-height: 1.6;
+    letter-spacing: 0.0625rem;
+    word-spacing: 0.1rem;
+    max-width: 100%;
+    width: 90%;
+    margin: 0 auto;
+}
+
+h1, h2, .big_font
+{
+    font-weight: 100;
+    font-family: 'Bungee Inline';
+}
+
+h3, p
+{
+    font-family: 'Satisfy', cursive;
+}
+
+h3
+{
+    font-weight: 900;
+    font-size: 2.5rem;
+}
+
+p
+{
+    font-weight: 500;
+    font-size: 1.6rem;
+}
+
+header
+{
+    animation-name: header_colour_change_right;
+    animation-delay: 0s;
+    animation-duration: 20s;
+    animation-iteration-count: 1;
+    max-height: 64px; /* when moving, apply reduced size sticky header with max-height 9vh or 5.58vh*/
+    width: 100%;
+    max-width: 1600px;
+    display: grid;
+    grid-template-columns: 38.2vw auto;
+    background-color: var(--bg_colour_offwhite);
+    box-shadow: 0px 24px 6px #27272780;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    /*border-bottom: ridge;
+    border-width: 2px;*/
+}
+
+header > div
+{
+    animation-name: header_colour_change_left;
+    animation-delay: 0s;
+    animation-duration: 20s;
+    animation-iteration-count: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    z-index: 2;
+    align-items: center;    
+    background-color: var(--bg_colour_red);
+    color: var(--font_colour_offwhite);
+    /*background: linear-gradient(to right, transparent, 0, var(--bg_colour_red), 99.9%, transparent);*/
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+#header_logo
+{
+    width: 50%;
+    max-height: 100%;
+    padding-left: 2vw;
+}
+
+header > div > h1
+{   
+    margin-left: -7vw;
+    font-size: 1.4rem;
+    overflow: hidden;
+}
+
+header nav
+{
+    /*background: linear-gradient(to right, transparent, 0.1%, var(--bg_colour_offwhite), 100%, transparent);*/
+    padding-right: 2vw;
+}
+
+header ul
+{
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    height: 100%;
+}
+
+header > nav > ul > li
+{
+    display: grid;
+    display: inline-block;
+    list-style: none; 
+    height: 100%;  
+}
+
+.header_image > div
+{
+    display: grid;
+    height: 100%;
+    align-items: center;
+}
+
+.header_image > div > img
+{
+    max-height: 8.2vh;
+    padding-left: 18vw;
+}
+
+header > nav > ul > li > a:hover
+{
+    animation-name: header_focus;
+    animation-duration: 2s;
+    animation-delay: 0.4s;
+    animation-iteration-count: infinite;
+    background-color: var(--bg_colour_red);  
+    color: var(--font_colour_offwhite);
+}
+
+header a
+{
+    display: grid;
+    text-decoration: none;
+    color: var(--font_colour_red);
+    font-size: 1.2rem;
+    height: 100%;
+    align-content: center;
+    padding: 0 1vw;
+    text-align: center;
+}
+
+footer
+{
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: 1fr 50vw 1fr;
+    background-color: var(--bg_colour_red);
+    border-top-style: groove;
+    border-top-width: 6px;
+    color: var(--font_colour_offwhite);
+}
+
+footer > div
+{
+    margin: 0 auto;
+}
+
+footer img
+{
+    display: block;
+    max-height: 38.2vh;
+    width: 38.2vw;
+}
+
+#homepage_banner
+{
+    background-color: var(--bg_colour_white);
+    max-width: 1600px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    /*background-image: url(../img/jumpstory-movie-4.jpg);
+    background-repeat: none;
+    background-size: contain;
+    height: 40vh;*/
+}
+
+#homepage_main img
+{
+    opacity: 90%;
+    width: 100%;
+    height: auto;
+    /*padding-top: 24px;*/
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    grid-row: 1;
+    grid-column: 1;
+    position: relative;
+}
+
+#homepage_main div:nth-child(2) 
+{
+    animation-name: black_white_change;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    margin: 4vh 0 0 4.8vw;
+    grid-row: 1;
+    grid-column: 1;
+    z-index: 3;
+    position: relative;
+    max-width: 42vw;
+}
+
+#homepage_main div:nth-child(2) > h2
+{
+    border-bottom-style: double;
+    border-bottom-width: 6px;
+    font-size: calc(1vw + 1em);
+    line-height: 1.5;
+}
+
+#homepage_main div:nth-child(3)
+{
+    color: black;
+    max-width: 22vw;
+    margin: 32vh 0 0vh 4.8vw;
+    grid-row: 1;
+    grid-column: 1;
+    z-index: 3;
+    position: relative;
+}
+
+#homepage_main div:nth-child(3) > p
+{
+    border-bottom-style: double;
+    border-bottom-width: 6px;
+    font-size: 1rem;
+    line-height: 3rem;
+    /*font-family: 'Satisfy';*/
+}
+
+#homepage_main div:nth-child(4)
+{
+    color: black;
+    max-width: 20vw;
+    margin: 72vh 0 0vh 4.8vw;
+    grid-row: 1;
+    grid-column: 1;
+    z-index: 3;
+    position: relative; 
+}
+
+#homepage_main div:nth-child(4) > a
+{
+    text-decoration: none;
+    font-size: 1.6rem;
+    color: black;
+    background-image: url(../img/jumpstory-movie-3-grey-2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 8px 12px;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 12px;
+}
+
+#homepage_main div:nth-child(4) > a:hover
+{
+    color: var(--font_colour_red);
+    background-image: url(../img/jumpstory-movie-3.jpg);
+}
+
+section
+{
+    max-width: 80%;
+    margin: 32px auto 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+section div
+{
+    display: grid;
+    margin: 0 auto 64px auto;
+    width: 95%;
+    height: 45vh;
+    justify-items: center;
+}
+
+section div:nth-child(even)
+{
+    background-color: var(--bg_colour_offwhite);
+    box-shadow: 10px 10px 10px black;
+}
+
+section img
+{
+    max-width: 100%;
+    width: 85%;
+    height: 100%;
+    border-radius: 64px;
+}
+
+section h3
+{
+    padding-top: 32px;
+}
+
+section p
+{
+    max-width: 100%;
+    width: 100%;
+    padding: 0 16px 16px 16px;
+    text-align: center;
+}
+
