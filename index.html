@@ -25,7 +25,7 @@
                     </div>
                 </li> 
                 <li>
-                    <a class="active_link" href="#">Home</a>
+                    <a class="active_link" href="">Home</a>
                 </li>
                 <li>
                     <a href="html/now_showing.html">Now Showing</a>
@@ -37,7 +37,7 @@
         </nav>
     </header>
     <main id="homepage_main">
-        <div id="homepage_banner">
+        <div class="hero_section">
             <img src="img/jumpstory-movie-16.jpg" alt="Large photo of old school film tape">
             <div>
                 <h2>
@@ -50,13 +50,13 @@
                 </p>
             </div>
             <div>
-                <a href="#">See Latest Movies</a>
+                <a href="html/now_showing.html">See Latest Movies</a>
             </div>
         </div>
     </main>
-    <section> <!--SECTION PROVIDING DETAILS ON THE COMPANY-->
+    <section class="section_containers"> <!--SECTION PROVIDING DETAILS ON THE COMPANY-->
         <!--GRID 1-->
-        <div>
+        <div class="section_image">
             <img class="hover_img" src="img/jumpstory-movie-6-grey.jpg" alt="Photo of bags of popcorn">
         </div>
         <div>
@@ -69,8 +69,8 @@
             <a class="red_link_buttons" href="#">Login or Create an Account Now</a>
         </div>
         <!--GRID 2-->
-        <div class="section_flip_to_right">
-            <img class="hover_img" src="img/jumpstory-movie-4-grey.jpg" alt="Photo of an old school cinema">
+        <div class="section_flip_to_right section_image">
+            <img class="hover_img" src="img/jumpstory-movie-4-unedited-grey.jpg" alt="Photo of an old school cinema">
         </div>
         <div class="section_flip_to_left">
             <h3 class="red_text">
@@ -79,9 +79,12 @@
             <p>
                 Our retro themed, yet modern cinemas provide the <span class="red_text">ultimate</span> experience for all our patrons, with <span class="red_text">spacious</span> and <span class="red_text">comfortable</span> seating, ultra wide <span class="red_text">8K HD</span> screens, and out of this world <span class="red_text">Dolby Digital 5.1</span> digital surround sound for full immersion. Click the <span class="red_text">icon below</span> to find the nearest cinemas near you.   
             </p>
+            <a id="location_icon_link" class="red_link_buttons" href="#">
+                <img src="img/location_icon.svg" alt="">
+            </a>
         </div>
         <!--GRID 3--> 
-        <div>
+        <div class="section_image">
             <img class="hover_img" src="img/jumpstory-movie-9-grey.jpg" alt="Photo of an old school projector playing a film">
         </div>
         <div>
@@ -91,7 +94,7 @@
             <p>
                 See the <span class="red_text">latest</span> trailers for upcoming movies. Don't get left out and <span class="red_text">book</span> your tickets and seats in advance! Ask about our <span class="red_text">special offers!!!</span>
             </p>
-            <a class="red_link_buttons" href="#">Book your seats here</a>
+            <a class="red_link_buttons" href="#">Book Your Seats Here</a>
         </div>
     </section>
     <section> <!--THIS SECTION DISPLAYS THE "COMING SOON" MOVIES-->
@@ -127,5 +130,6 @@
             </h2>
         </div>
     </footer>
+    <script src="js/app.js"></script>
 </body>
 </html>

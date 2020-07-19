@@ -52,12 +52,43 @@
     }
 }
 
-@keyframes header_focus
+@keyframes header_link_hover
 {
     0% {font-size: 1rem;}
     25% {font-size: 1.01rem;}
     50% {font-size: 0.99rem;}
     100% {font-size: 0.99rem;}
+}
+
+@keyframes arrow_select_hover
+{
+    0% {height: 64px;}
+    50% {height: 96px;}
+    100% {height: 64px;}
+}
+
+@keyframes film_change_exit_right
+{
+    from {margin-left: 0;}
+    to {margin-left: 120%;}
+}
+
+@keyframes film_change_exit_left
+{
+    from {margin-left: 0;}
+    to {margin-left: -120%;}
+}
+
+@keyframes film_change_enter_left
+{
+    from {margin-left: -120%;}
+    to {margin-left: 0;}
+}
+
+@keyframes film_change_enter_right
+{
+    from {margin-right: -120%;}
+    to {margin-right: 0;}
 }
 
 .red_text
@@ -83,10 +114,26 @@
     grid-row: 2;
 }
 
+#location_icon_link img
+{
+    display: block;
+    width: 64px;
+    height: 64px;
+    padding: 0;
+}
+
+#location_icon_link.red_link_buttons
+{
+    padding: 0;
+    border-radius: 0;
+    background: none;
+}
+
 .red_link_buttons
 {
-    display: inline-block;
-    margin: 0 auto 20vh auto;
+    display: grid;
+    align-self: center;
+    margin: 16px auto 16px auto;
     font-family:'Satisfy';
     text-decoration: none;
     cursor: pointer;
@@ -108,9 +155,15 @@
 
 .active_link 
 {
-    color: white !important;
-    background-color: black !important;
+    color: white;
+    background-color: black;
     width: 100%;
+}
+
+html
+{
+    scroll-behavior: smooth;
+    /*scroll-snap-type: y proximity;*/
 }
 
 body
@@ -120,8 +173,8 @@ body
     line-height: 1.6;
     letter-spacing: 0.0625rem;
     word-spacing: 0.1rem;
-    max-width: 2000px;
-    width: 90%;
+    max-width: 1140px;
+    width: 95%;
     margin: 0 auto;
 }
 
@@ -131,7 +184,7 @@ h1, h2, .big_font
     font-family: 'Bungee Inline';
 }
 
-h3, p
+h3, h4, p
 {
     font-family: 'Satisfy', cursive;
 }
@@ -139,13 +192,19 @@ h3, p
 h3
 {
     font-weight: 900;
-    font-size: 2.5rem;
+    font-size: 2rem;
+}
+
+h4
+{
+    font-weight: 900;
+    font-size: 1.2rem;   
 }
 
 p
 {
     font-weight: 500;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
 }
 
 header
@@ -155,9 +214,8 @@ header
     animation-duration: 20s;
     animation-iteration-count: 1;
     /*height: 9%; /* when moving, apply reduced size sticky header with max-height 9vh or 5.58vh*/
-    max-height: 10vh;
+    height: 64px;
     width: 100%;
-    max-width: 2000px;
     display: grid;
     grid-template-columns: 38.2% 61.8%;
     color: var(--font_colour_red);
@@ -167,6 +225,14 @@ header
     top: 0;
     z-index: 100;
     margin: 0 auto;
+}
+
+header:hover
+{
+    transition: ease-in;
+    transition-property: opacity;
+    transition-duration: 0.4s;
+    opacity: 10%;
 }
 
 header > div
@@ -196,25 +262,25 @@ header > div
 {
     max-width: 100%;
     max-height: 95%;
-    padding-left: 1vw;
+    padding-left: 10%;
 }
 
 header > div > h1
 {   
-    padding-left: 1vw;
+    padding-left: 5%;
     font-size: 1rem;
 }
 
 header nav
 {
     /*background: linear-gradient(to right, transparent, 0.1%, var(--bg_colour_offwhite), 100%, transparent);*/
-    padding-right: 1vw;
+    padding-right: 2%;
 }
 
 header ul
 {
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
     height: 100%;
 }
 
@@ -242,13 +308,12 @@ header > nav > ul > li
 
 header > nav > ul > li > a:hover
 {
-    animation-name: header_focus;
+    animation-name: header_link_hover;
     animation-duration: 2s;
     animation-delay: 0s;
     animation-iteration-count: infinite;
     background-color: var(--bg_colour_red);  
     color: var(--font_colour_offwhite);
-    width: 100%;
 }
 
 header a
@@ -256,20 +321,21 @@ header a
     display: grid;
     text-decoration: none;
     color: inherit;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     height: 100%;
+    width: 100%;
+    max-width: 100%;
     align-content: center;
-    padding: 0 1vw;
+    padding: 0 10%;
     text-align: center;
 }
 
 footer
 {
-    width: 100%;
-    max-width: 2000px;
-    margin: 32px auto 0 auto;
     display: grid;
     grid-template-columns: 25% 50% 25%;
+    max-height: 500px;
+    margin: 32px auto 0 auto;
     background-color: var(--bg_colour_red);
     border-top-style: groove;
     border-top-width: 6px;
@@ -279,33 +345,30 @@ footer
 footer > div
 {
     margin: 0 auto;
+    height: 100%;
+    max-width: 100%;
 }
 
 footer img
 {
     display: block;
-    max-height: 38.2vh;
     max-width: 100%;
 }
 
-#homepage_banner
+.hero_section
 {
-    background-color: var(--bg_colour_white);
-    max-width: 2000px;
     width: 100%;
     height: auto;
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 1fr;
-    /*background-image: url(../img/jumpstory-movie-4.jpg);
-    background-repeat: none;
-    background-size: contain;
-    height: 40vh;*/
+    margin-bottom: 32px;
+    scroll-snap-align: start;
 }
 
-#homepage_main img
+.hero_section img
 {
-    opacity: 90%;
+    opacity: 70%;
     width: 100%;
     height: auto;
     /*padding-top: 24px;*/
@@ -326,7 +389,7 @@ footer img
     grid-column: 1;
     z-index: 3;
     position: relative;
-    width: 40%;
+    width: 43.5%;
     max-height: 100%;
 }
 
@@ -334,20 +397,19 @@ footer img
 {
     border-bottom-style: double;
     border-bottom-width: 6px;
-    font-size: 2.8rem;
+    font-size: 3.28rem;
     line-height: 1.2;
 }
 
 #homepage_main div:nth-child(3)
 {
     color: black;
-    max-width: 20%;
-    margin: 15% 0 0 4%;
+    max-width: 25%;
+    margin: 16% 0 0 4%;
     grid-row: 1;
     grid-column: 1;
     z-index: 3;
     position: relative;
-    letter-spacing: 0;
 }
 
 #homepage_main div:nth-child(3) > p
@@ -355,15 +417,14 @@ footer img
     border-bottom-style: double;
     border-bottom-width: 6px;
     font-size: 1rem;
-    line-height: 1.4;
-    /*font-family: 'Satisfy';*/
+    line-height: 1.8;
 }
 
 #homepage_main div:nth-child(4)
 {
     color: black;
-    max-width: 20vw;
-    margin: 35% 0 0 4%;
+    max-width: 40%;
+    margin: 42.5% 0 0 4%;
     grid-row: 1;
     grid-column: 1;
     z-index: 3;
@@ -373,7 +434,7 @@ footer img
 #homepage_main div:nth-child(4) > a
 {
     text-decoration: none;
-    font-size: 1.6rem;
+    font-size: 1rem;
     color: black;
     background-image: url(../img/jumpstory-movie-3-grey-2.jpg);
     background-repeat: no-repeat;
@@ -390,43 +451,53 @@ footer img
     background-image: url(../img/jumpstory-movie-3.jpg);
 }
 
-section
+.section_containers
 {
-    max-width: 80%;
-    margin: 32px auto 0 auto;
+    max-width: 90%;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    background-color: whitesmoke;
 }
 
-section div
+.section_containers div
 {
     display: grid;
     margin: 0 auto 64px auto;
     width: 95%;
-    height: 45vh;
+    max-height: 440px;
     justify-items: center;
 }
 
-section div:nth-child(even)
+.section_containers div:nth-child(even)
 {
     background-color: var(--bg_colour_offwhite);
     box-shadow: 10px 10px 10px black;
 }
 
-section img
+.section_image
 {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    cursor: crosshair;
+}
+
+.section_containers img
+{
+    width: 90%;
     max-width: 100%;
-    width: 85%;
-    height: 100%;
+    height: 380px;
+    max-height: 100%;
     border-radius: 64px;
 }
 
-section h3
+.section_containers h3
 {
-    padding-top: 32px;
+    padding-top: 24px;
 }
 
-section p
+.section_containers p
 {
     max-width: 100%;
     width: 100%;
@@ -434,3 +505,165 @@ section p
     text-align: center;
 }
 
+/* ---------- NOW SHOWING PAGE ---------- */
+
+#now_showing_section
+{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    width: 100%;
+    align-items: center;
+    background-color: whitesmoke;
+}
+
+#now_showing_section > div:first-child
+{
+    display: grid;
+    grid-template-columns: 32px 1fr 32px;
+    grid-template-rows: 1fr;
+    align-items: center;    
+    overflow: hidden;
+    /*background-color: blueviolet;*/
+    scroll-snap-align: start;
+    scroll-margin-top: 12.5vh;
+}
+
+#now_showing_section > div:first-child > img:nth-child(2):hover ~ img 
+{
+    animation-name: film_change_exit_right, film_change_enter_left;
+    animation-timing-function: ease-out, ease-out;
+    animation-delay: 0s, 0.4s;
+    animation-duration: 0.4s, 0.4s;
+    animation-iteration-count: 1, 1;
+}
+
+.left_sel_arrows, .right_sel_arrows
+{
+    height: 64px;
+    width: 100%;
+    z-index: 5;
+}
+
+#now_showing_section .right_sel_arrows
+{
+    grid-column: 3;
+    grid-row: 1;
+}
+
+#now_showing_section .left_sel_arrows
+{
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.left_sel_arrows:hover, .right_sel_arrows:hover
+{
+    animation-name: arrow_select_hover;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    cursor: pointer;
+}
+
+.left_sel_arrows
+{
+    transform: scaleX(-1);
+}
+
+#now_showing_section > div > img:nth-child(3)
+{
+    margin: 0 auto;
+    width: 100%;
+    border: none;
+    border-radius: unset;
+    grid-column: 2;
+    grid-row: 1;
+}
+
+#now_showing_section_div
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin: 32px auto;
+    /*background-color: blue;*/
+    column-gap: 4px;
+    width: 100%;
+    max-width: 100%;
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 100vh;
+    scroll-snap-type: y proximity;
+}
+
+.movie_content
+{
+    display: grid;
+    display: inline-block;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    margin-bottom: 4px;
+    padding: 16px;
+    border: 4px solid black;
+    background-color: lightgrey;
+    color: black;
+    position: relative;
+    border-bottom-right-radius: 32px;
+    border-top-right-radius: 32px;
+    scroll-snap-align: start;
+}
+
+.movie_content:hover
+{
+    border: 4px solid var(--font_colour_darkbrown);
+    background-color: var(--bg_colour_offwhite);
+    border-radius: unset;
+}
+
+.movie_content div:nth-child(6)
+{
+    position: absolute;
+    bottom: 0;
+    height: 120px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.movie_content div:nth-child(5)
+{
+    margin-bottom: 144px;
+}
+
+.movie_content h3, .movie_content h4
+{
+    color: black;    
+}
+
+.movie_content:hover h4
+{
+    color: var(--font_colour_red);
+}
+
+.movie_content h3
+{
+    height: max-content;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    /*scroll-margin-top: 11.5vh;*/
+}
+
+.movie_content p
+{
+    font-size: 1rem;
+}
+
+.movie_content img
+{
+    width: 100%;
+    border-radius: 16px;
+    filter: grayscale(100%);
+}
+
+.movie_content:hover img
+{
+    filter: grayscale(0%);
+}

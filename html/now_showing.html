@@ -7,93 +7,50 @@
     <link href="https://fonts.googleapis.com/css2?family=Modak&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Satisfy&family=Yellowtail&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body id="now_showing_body">
     <header>
         <div>
-            <img id="header_logo" src="img/jumpstory-illustration-edited.png" alt="Ticket logo">
+            <div id="header_logo">
+                <img src="../img/jumpstory-illustration-edited.png" alt="Ticket logo">
+            </div>
             <h1>The Weekend Hack Movie Entertainment Ltd.</h1>
         </div>
         <nav>
             <ul>
                 <li class="header_image">
                     <div >
-                        <img src="img/jumpstory-movie-11-removebg.png" alt="Film tape image">
+                        <img src="../img/jumpstory-movie-11-removebg.png" alt="Film tape image">
                     </div>
                 </li> 
                 <li>
                     <a href="../index.html">Home</a>
                 </li>
                 <li>
-                    <a class="active_link" href="#">Now Showing</a>
+                    <a class="active_link" href="#now_showing_section">Now Showing</a>
                 </li>
                 <li>
-                    <a href="#">Login / Sign Up</a>
+                    <a href="#">Login</a>
                 </li>
             </ul>
         </nav>
     </header>
-    <main id="homepage_main">
-        <div id="homepage_banner">
-            <img src="img/jumpstory-movie-16.jpg" alt="">
-            <div>
-                <h2>
-                    Welcome to our movie listings
-                </h2>
-            </div>
-            <div>
-                <p class="big_font">
-                    Explore content from our <span class="huge_text">huge</span> library, <span class="red_text">see what's new and popular these days</span> and check out thousands upon thousands of movie reviews from viewers like <span class="red_text">yourself!!!</span>  
-                </p>
-            </div>
-            <div>
-                <a href="#">See Latest Movies</a>
-            </div>
+    <main id="now_showing_main">
+        <div class="hero_section">
+            <img src="../img/jumpstory-movie-19.jpg" alt="Old school cinema banner">
         </div>
     </main>
-    <section> <!--SECTION PROVIDING DETAILS ON THE COMPANY-->
-        <!--GRID 1-->
+    <section id="now_showing_section">
         <div>
-            <img class="hover_img" src="img/jumpstory-movie-6-grey.jpg" alt="">
+            <img class="left_sel_arrows" src="../img/right arrow multiple.png" alt="">
+            <img class="right_sel_arrows" src="../img/right arrow multiple.png" alt=""> 
+            <img src="../img/film_strip_vintage.jpg" alt="A vintage film strip">     
         </div>
-        <div>
-            <h3 class="red_text">
-                Popular Movies
-            </h3>
-            <p>
-                Grab some popcorn and browse through our available categories to find your favourite movies. <span class="red_text">Sign Up</span> to create a new account or <span class="red_text">Login</span> to an existing one to save all your favourites for later. <span class="red_text">Mmmm enjoy that tasty popcorn!</span>
-            </p>
-            <a class="red_link_buttons" href="#">Login or Create an Account Now</a>
+        <!--THE BELOW DIV HOLDS 20 DIVS PER PAGE FOR DYNAMICALLY REST API REQUESTED MOVIES-->
+        <div id="now_showing_section_div"> 
+            <!--<h1>HELLO</h1>-->
         </div>
-        <!--GRID 2-->
-        <div class="section_flip_to_right">
-            <img class="hover_img" src="img/jumpstory-movie-4-grey.jpg" alt="">
-        </div>
-        <div class="section_flip_to_left">
-            <h3 class="red_text">
-                Our Cinemas
-            </h3>
-            <p>
-                Our retro themed, yet modern cinemas provide the <span class="red_text">ultimate</span> experience for all our patrons, with <span class="red_text">spacious</span> and <span class="red_text">comfortable</span> seating, ultra wide <span class="red_text">8K HD</span> screens, and out of this world <span class="red_text">Dolby Digital 5.1</span> digital surround sound for full immersion. Click the <span class="red_text">icon below</span> to find the nearest cinemas near you.   
-            </p>
-        </div>
-        <!--GRID 3--> 
-        <div>
-            <img class="hover_img" src="img/jumpstory-movie-9-grey.jpg" alt="">
-        </div>
-        <div>
-            <h3 class="red_text">
-                Coming Soon
-            </h3>
-            <p>
-                See the <span class="red_text">latest</span> trailers for upcoming movies. Don't get left out and <span class="red_text">book</span> your tickets and seats in advance! Ask about our <span class="red_text">special offers!!!</span>
-            </p>
-            <a class="red_link_buttons" href="#">Book your seats here</a>
-        </div>
-    </section>
-    <section> <!--THIS SECTION DISPLAYS THE "COMING SOON" MOVIES-->
-
     </section>
     <footer>
         <div>
@@ -108,7 +65,7 @@
            </h2>
         </div>
         <div>
-            <img src="img/jumpstory-movie-12.jpg" alt="">
+            <img src="../img/jumpstory-movie-12.jpg" alt="Photo of old school 'The End' screen">
         </div>
         <div>
             <h2>
@@ -125,5 +82,6 @@
             </h2>
         </div>
     </footer>
+    <script src="../js/app.js"></script>
 </body>
 </html>
