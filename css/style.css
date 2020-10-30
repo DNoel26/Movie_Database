@@ -22,6 +22,12 @@
     100% {color: var(--font_colour_offwhite);}
 }
 
+@keyframes black_red_change
+{
+    50% {color: black;}
+    100% {color: var(--font_colour_red);}
+}
+
 @keyframes header_colour_change_left
 {
     from 
@@ -221,8 +227,8 @@ header
     color: var(--font_colour_red);
     background-color: var(--bg_colour_offwhite);
     box-shadow: 0px 12px 6px #27272780;
-    position: sticky;
-    top: 0;
+    /*position: sticky;
+    top: 0;*/
     z-index: 100;
     margin: 0 auto;
 }
@@ -232,7 +238,7 @@ header:hover
     transition: ease-in;
     transition-property: opacity;
     transition-duration: 0.4s;
-    opacity: 10%;
+    /*opacity: 10%;*/
 }
 
 header > div
@@ -524,9 +530,6 @@ footer img
     grid-template-rows: 1fr;
     align-items: center;    
     overflow: hidden;
-    /*background-color: blueviolet;*/
-    scroll-snap-align: start;
-    scroll-margin-top: 12.5vh;
 }
 
 #now_showing_section > div:first-child > img:nth-child(2):hover ~ img 
@@ -623,14 +626,14 @@ footer img
 {
     position: absolute;
     bottom: 0;
-    height: 120px;
+    height: 110px;
     width: 90%;
     margin: 0 auto;
 }
 
 .movie_content div:nth-child(5)
 {
-    margin-bottom: 144px;
+    margin-bottom: 124px;
 }
 
 .movie_content h3, .movie_content h4
@@ -646,7 +649,7 @@ footer img
 .movie_content h3
 {
     height: max-content;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     text-transform: uppercase;
     /*scroll-margin-top: 11.5vh;*/
 }
@@ -666,4 +669,158 @@ footer img
 .movie_content:hover img
 {
     filter: grayscale(0%);
+}
+
+#now_showing_main
+{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+#now_showing_main .hero_section
+{
+    grid-row: 1;
+    grid-column: 1;
+    opacity: 70%;
+}
+
+#now_showing_main .hero_section img
+{
+    object-fit: cover;
+
+}
+
+#movie_hero_img
+{
+    grid-row: 1;
+    grid-column: 1;
+    z-index: 3;
+    width: 50%;
+    justify-self: right;
+    justify-content: center;  
+}
+
+#movie_hero_img .movie_img img
+{
+    width: 51%;
+    margin-left: 39.5%;
+    margin-top: 28.5%;
+    border-radius: 8px;
+}
+
+#movie_details_div
+{
+    background-color: whitesmoke;
+    padding: 16px;
+}
+
+#movie_details_div h3, #movie_details_div h4 
+{
+    color: var(--font_colour_red);
+    font-size: 2.4rem;
+    font-family: 'Bungee Inline', 'Satisfy', cursive;
+}
+
+#movie_details_div p
+{
+    font-family: 'Bungee Inline', 'Satisfy', cursive;
+    font-size: 1.8rem;
+}
+
+.modal
+{
+    display: grid;
+    grid-template-rows: 48px 1fr;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    justify-items: center;
+    align-items: center;
+    opacity: 100%;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+}
+
+.modal > div:nth-child(1) > button
+{
+    /*background-color: red;*/
+    align-items: center;
+    margin: 20vh 0 0 63vw;
+    padding-bottom: 8px;
+}
+
+.modal > div:nth-child(2) > iframe
+{
+    background-color: blue;
+    margin: 0 auto;
+}
+
+.modal iframe
+{
+    display: block;
+    max-width: 100%;
+    max-height: 100vh;
+}
+
+.generic_button
+{
+    display: block;
+    height: 100%;
+    background: none;
+    border: none;
+    text-decoration: none;
+    outline: none;
+}
+
+.generic_button img, .generic_button div
+{
+    display: block;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+}
+
+.generic_button.close_button img
+{
+    width: 40%;
+}
+
+#movie_hero_img > div:nth-child(2)
+{
+    margin-top: 16px;    
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+}
+
+#movie_hero_img > div:nth-child(2) h3
+{
+    font-size: 1.8rem;
+    font-family: 'Bungee Inline', 'Satisfy', cursive;
+    animation-name: black_red_change;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+.youtube_play_button.generic_button
+{
+    height: 48px;
+    margin: 0 30px 0 80px;
+}
+
+.youtube_play_button.generic_button img
+{
+    object-fit: contain;
+    height: 92px;
+    width: 92px;
+    margin-left: 160px;
+    filter: grayscale(100%);
+}
+
+.youtube_play_button.generic_button img:hover
+{
+    filter: grayscale(0); 
 }

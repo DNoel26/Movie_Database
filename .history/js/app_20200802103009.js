@@ -151,7 +151,7 @@ const app =
 
                                     //const session_data = api_movie[i];
 
-                                    //alert("ttt");
+                                    alert("ttt");
 
                                     console.log(api_movie[0]);
 
