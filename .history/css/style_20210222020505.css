@@ -282,21 +282,21 @@ header nav
 {
     /*background: linear-gradient(to right, transparent, 0.1%, var(--bg_colour_offwhite), 100%, transparent);*/
     padding-right: 2%;
-    height: 64px;
+    height: max-content;
 }
 
 header ul
 {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr;
-    height: 64px;
+    height: 100%;
 }
 
 header > nav > ul > li
 {
     display: inline-block;
     list-style: none; 
-    height: 64px;  
+    height: 100%;  
 }
 
 .header_image > div
@@ -308,7 +308,7 @@ header > nav > ul > li
 
 .header_image > div > img
 {
-    height: 60px;
+    height: 90%;
     max-width: 100%;
     margin-left: 12px;
 }

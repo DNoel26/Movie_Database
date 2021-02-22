@@ -296,7 +296,7 @@ header > nav > ul > li
 {
     display: inline-block;
     list-style: none; 
-    height: 64px;  
+    height: 100%;  
 }
 
 .header_image > div
@@ -308,7 +308,7 @@ header > nav > ul > li
 
 .header_image > div > img
 {
-    height: 60px;
+    height: 90%;
     max-width: 100%;
     margin-left: 12px;
 }
